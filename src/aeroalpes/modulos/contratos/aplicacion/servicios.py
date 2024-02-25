@@ -26,15 +26,13 @@ class ServicioContrato(Servicio):
     
     def crear_contrato(self, contrato_dto: ContratoDTO) -> ContratoDTO:
         contrato: Contrato = self.fabrica_contratos.crear_objeto(contrato_dto, MapeadorContrato())
-        #contrato.crear_contrato(contrato)
+        contrato.crear_contrato(contrato)
 
         repositorio = self.fabrica_repositorio.crear_objeto(RepositorioContratos.__class__)
 
-        """ UnidadTrabajoPuerto.registrar_batch(repositorio.agregar, contrato)
+        UnidadTrabajoPuerto.registrar_batch(repositorio.agregar, contrato)
         UnidadTrabajoPuerto.savepoint()
-        UnidadTrabajoPuerto.commit() """
-
-        repositorio.agregar(contrato)
+        UnidadTrabajoPuerto.commit()
 
         return self.fabrica_contratos.crear_objeto(contrato, MapeadorContrato())
 

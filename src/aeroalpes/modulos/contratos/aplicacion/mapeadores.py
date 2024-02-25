@@ -26,10 +26,14 @@ class MapeadorContratoDTOJson(AppMap):
     
     def externo_a_dto(self, externo: dict) -> ContratoDTO:
         contrato_dto = ContratoDTO()
-
-        """ itinerarios: list[ItinerarioDTO] = list()
-        for itin in externo.get('itinerarios', list()):
-            reserva_dto.itinerarios.append(self._procesar_itinerario(itin)) """
+        
+        contrato_dto.direccion = externo.get("direccion")
+        contrato_dto.telefono = externo.get("telefono")
+        contrato_dto.fecha_inicio = externo.get("fecha_inicio")
+        contrato_dto.fecha_fin = externo.get("fecha_fin")
+        contrato_dto.arrendatario = externo.get('arrendatario')
+        contrato_dto.inquilino = externo.get('inquilino')
+        contrato_dto.monto = externo.get('monto')
 
         return contrato_dto
 
@@ -92,7 +96,7 @@ class MapeadorContrato(RepMap):
         inquilino = str(entidad.inquilino) 
         monto = float(entidad.monto)
         
-        return ContratoDTO(fecha_creacion, fecha_actualizacion, _id, direccion, telefono, fecha_inicio, fecha_fin, arrendatario, inquilino, monto)
+        return ContratoDTO()
 
     def dto_a_entidad(self, dto: ContratoDTO) -> Contrato:
         contrato = Contrato()

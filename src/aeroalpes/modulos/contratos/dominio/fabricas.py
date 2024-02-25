@@ -17,6 +17,8 @@ from dataclasses import dataclass
 class _FabricaContrato(Fabrica):
     def crear_objeto(self, obj: any, mapeador: Mapeador) -> any:
         if isinstance(obj, Entidad):
+            print("objeto es: ")
+            print(obj)
             return mapeador.entidad_a_dto(obj)
         else:
             contrato: Contrato = mapeador.dto_a_entidad(obj)
