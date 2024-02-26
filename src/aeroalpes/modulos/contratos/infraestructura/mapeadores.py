@@ -6,9 +6,10 @@ encargados de la transformación entre formatos de dominio y DTOs
 """
 
 from aeroalpes.seedwork.dominio.repositorios import Mapeador
-from aeroalpes.modulos.contratos.dominio.objetos_valor import Direccion, Telefono, Fecha_inicio, Fecha_fin, Arrendatario, Inquilino, Monto
+from aeroalpes.modulos.contratos.dominio.objetos_valor import Fecha_inicio, Fecha_fin, Monto
 from aeroalpes.modulos.contratos.dominio.entidades import Contrato
 from .dto import Contrato as ContratoDTO
+import uuid
 
 class MapeadorContrato(Mapeador):
     _FORMATO_FECHA = '%Y-%m-%dT%H:%M:%SZ'
@@ -17,29 +18,29 @@ class MapeadorContrato(Mapeador):
         return Contrato.__class__
 
     def entidad_a_dto(self, entidad: Contrato) -> ContratoDTO:
-        
+        print("entidad_a_dto_infra")
+        print(entidad)
         contrato_dto = ContratoDTO()
         contrato_dto.fecha_creacion = entidad.fecha_creacion
         contrato_dto.fecha_actualizacion = entidad.fecha_actualizacion
-        contrato_dto.id = str(entidad.id)
-        contrato_dto.direccion = str(entidad.direccion)
-        contrato_dto.telefono = int(entidad.telefono) 
-        contrato_dto.fecha_inicio = str(entidad.fecha_inicio) 
-        contrato_dto.fecha_fin = str(entidad.fecha_fin)
-        contrato_dto.arrendatario = str(entidad.arrendatario)
-        contrato_dto.inquilino = str(entidad.inquilino) 
+        contrato_dto.id = str(uuid.uuid4())
+        contrato_dto.fecha_inicio = entidad.fecha_inicio 
+        contrato_dto.fecha_fin = entidad.fecha_fin
+        contrato_dto.id_propiedad = entidad.id_propiedad
+        contrato_dto.id_inquilino = entidad.id_inquilino
+        contrato_dto.id_compania = entidad.id_compania
         contrato_dto.monto = float(entidad.monto)
 
         return contrato_dto
 
     def dto_a_entidad(self, dto: ContratoDTO) -> Contrato:
+        print("dto_a_entidad_infra")
+        print(ContratoDTO)
         contrato = Contrato(dto.id, dto.fecha_creacion, dto.fecha_actualizacion)
-        contrato.direccion = dto.direccion
-        contrato.telefono = dto.telefono
         contrato.fecha_inicio = dto.fecha_inicio
         contrato.fecha_fin = dto.fecha_fin
-        contrato.arrendatario = dto.arrendatario
-        contrato.inquilino = dto.inquilino
+        """ contrato.id_propiedad = dto.id_propiedad
+        contrato.id_inquilino = dto.id_inquilino """
         contrato.monto = dto.monto
         
         return contrato

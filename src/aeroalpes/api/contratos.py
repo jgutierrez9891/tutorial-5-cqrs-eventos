@@ -37,9 +37,13 @@ def crear_contrato_asincrono():
         contrato_dict = request.json
 
         map_contrato = MapeadorContratoDTOJson()
-        contrato_dto = map_contrato.externo_a_dto(contrato_dict)
+        
 
-        comando = CrearContrato(contrato_dto.fecha_creacion, contrato_dto.fecha_actualizacion, contrato_dto.id, contrato_dto.itinerarios)
+        contrato_dto = map_contrato.externo_a_dto(contrato_dict)
+        print("contratodto2:")
+        print(contrato_dto)
+
+        comando = CrearContrato(contrato_dto.id, contrato_dto.fecha_creacion, contrato_dto.fecha_actualizacion, contrato_dto.fecha_inicio, contrato_dto.fecha_fin, contrato_dto.id_compania, contrato_dto.id_inquilino, contrato_dto.id_propiedad, contrato_dto.monto)
         
         ejecutar_commando(comando)
         

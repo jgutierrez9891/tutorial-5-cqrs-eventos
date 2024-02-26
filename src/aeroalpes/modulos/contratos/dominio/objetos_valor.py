@@ -12,14 +12,6 @@ from datetime import datetime
 from enum import Enum
 
 @dataclass(frozen=True)
-class Direccion():
-    direccion: str
-
-@dataclass(frozen=True)
-class Telefono():
-    telefono: int
-
-@dataclass(frozen=True)
 class Fecha_inicio():
     fecha_inicio: datetime
 
@@ -27,13 +19,6 @@ class Fecha_inicio():
 class Fecha_fin():
     fecha_fin: datetime
 
-@dataclass(frozen=True)
-class Arrendatario():
-    arrendatario: str
-
-@dataclass(frozen=True)
-class Inquilino():
-    inquilino: str
 
 @dataclass(frozen=True)
 class Monto():
@@ -41,5 +26,5 @@ class Monto():
 
 class EstadoContrato(str, Enum):
     PENDIENTE = "Pendiente"
-    FIRMADO = "Firmado"
-    PROCESADO = "Procesado"
+    #FIRMADO = "Firmado"
+    #PROCESADO = "Procesado"

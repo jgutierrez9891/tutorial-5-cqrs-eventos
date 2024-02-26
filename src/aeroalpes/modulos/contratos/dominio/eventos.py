@@ -9,7 +9,7 @@ class ContratoCreado(EventoDominio):
     estado: str = None
     fecha_creacion: datetime = None
     
-@dataclass
+""" @dataclass
 class ContratoFirmado(EventoDominio):
     id_reserva: uuid.UUID = None
     fecha_actualizacion: datetime = None
@@ -17,4 +17,4 @@ class ContratoFirmado(EventoDominio):
 @dataclass
 class ContratoProcesado(EventoDominio):
     id_reserva: uuid.UUID = None
-    fecha_actualizacion: datetime = None
+    fecha_actualizacion: datetime = None """

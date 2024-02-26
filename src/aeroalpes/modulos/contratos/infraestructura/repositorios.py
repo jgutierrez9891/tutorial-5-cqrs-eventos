@@ -20,17 +20,6 @@ class RepositorioProveedoresSQLite(RepositorioProveedores):
         # TODO
         raise NotImplementedError
 
-    """ def obtener_todos(self) -> list[Contrato]:
-        origen=Aeropuerto(codigo="CPT", nombre="Cape Town International")
-        destino=Aeropuerto(codigo="JFK", nombre="JFK International Airport")
-        legs=[Leg(origen=origen, destino=destino)]
-        segmentos = [Segmento(legs)]
-        odos=[Odo(segmentos=segmentos)]
-
-        proveedor = Proveedor(codigo=CodigoIATA(codigo="AV"), nombre=NombreAero(nombre= "Avianca"))
-        proveedor.itinerarios = [Itinerario(odos=odos, proveedor=proveedor)]
-        return [proveedor] """
-
     def agregar(self, entity: Contrato):
         # TODO
         raise NotImplementedError
@@ -62,6 +51,8 @@ class RepositorioContratosSQLite(RepositorioContratos):
 
     def agregar(self, contrato: Contrato):
         contrato_dto = self.fabrica_contratos.crear_objeto(contrato, MapeadorContrato())
+        print("contrato-sqlite")
+        print(contrato_dto)
         db.session.add(contrato_dto)
 
     def actualizar(self, contrato: Contrato):
