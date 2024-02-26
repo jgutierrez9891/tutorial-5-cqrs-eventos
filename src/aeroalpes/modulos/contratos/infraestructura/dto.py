@@ -15,7 +15,7 @@ Base = db.declarative_base()
 
 class Contrato(db.Model):
     __tablename__ = "contratos"
-    id = db.Column(db.String, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     fecha_creacion = db.Column(db.DateTime, nullable=False)
     fecha_actualizacion = db.Column(db.DateTime, nullable=False)
     fecha_inicio = db.Column(db.DateTime, nullable=False)
@@ -28,7 +28,7 @@ class Contrato(db.Model):
 
 class Compania(db.Model):
     __tablename__ = "companias"
-    id = db.Column(db.String, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     documento_identidad = db.Column(db.String, nullable=False)
     nombre = db.Column(db.String, nullable=False)
     direccion = db.Column(db.String, nullable=False)
@@ -36,13 +36,13 @@ class Compania(db.Model):
 
 class Inquilino(db.Model):
     __tablename__ = "inquilinos"
-    id = db.Column(db.String, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nombre = db.Column(db.String, nullable=False)
     telefono = db.Column(db.Integer, nullable=False)
 
 class Propiedad(db.Model):
     __tablename__ = "propiedades"
-    id = db.Column(db.String, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     matricula = db.Column(db.String, nullable=False)
     direccion = db.Column(db.String, nullable=False)
     area = db.Column(db.Integer, nullable=False)

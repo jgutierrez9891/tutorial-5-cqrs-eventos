@@ -11,7 +11,7 @@ from aeroalpes.modulos.contratos.infraestructura.repositorios import Repositorio
 
 @dataclass
 class CrearContrato(Comando):
-    id: str
+    #id: str
     fecha_creacion: str
     fecha_actualizacion: str
     fecha_inicio: str
@@ -28,8 +28,8 @@ class CrearContratoHandler(CrearContratoBaseHandler):
         print(comando)
 
         contrato_dto = ContratoDTO(
-                id = comando.id
-            ,   fecha_creacion = comando.fecha_creacion
+                #id = comando.id
+               fecha_creacion = comando.fecha_creacion
             ,   fecha_actualizacion = comando.fecha_actualizacion   
             ,   fecha_inicio = comando.fecha_inicio
             ,   fecha_fin = comando.fecha_fin

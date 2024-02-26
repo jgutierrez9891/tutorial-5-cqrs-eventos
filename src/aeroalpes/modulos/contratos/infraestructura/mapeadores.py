@@ -23,7 +23,7 @@ class MapeadorContrato(Mapeador):
         contrato_dto = ContratoDTO()
         contrato_dto.fecha_creacion = entidad.fecha_creacion
         contrato_dto.fecha_actualizacion = entidad.fecha_actualizacion
-        contrato_dto.id = str(uuid.uuid4())
+        # contrato_dto.id = entidad.id
         contrato_dto.fecha_inicio = entidad.fecha_inicio 
         contrato_dto.fecha_fin = entidad.fecha_fin
         contrato_dto.id_propiedad = entidad.id_propiedad
@@ -36,11 +36,12 @@ class MapeadorContrato(Mapeador):
     def dto_a_entidad(self, dto: ContratoDTO) -> Contrato:
         print("dto_a_entidad_infra")
         print(ContratoDTO)
-        contrato = Contrato(dto.id, dto.fecha_creacion, dto.fecha_actualizacion)
+        contrato = Contrato(dto.fecha_creacion, dto.fecha_actualizacion)
         contrato.fecha_inicio = dto.fecha_inicio
         contrato.fecha_fin = dto.fecha_fin
-        """ contrato.id_propiedad = dto.id_propiedad
-        contrato.id_inquilino = dto.id_inquilino """
+        contrato.id_propiedad = dto.id_propiedad
+        contrato.id_inquilino = dto.id_inquilino
+        contrato.id_compania = dto.id_compania
         contrato.monto = dto.monto
         
         return contrato

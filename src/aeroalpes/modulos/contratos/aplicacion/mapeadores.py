@@ -10,12 +10,23 @@ from datetime import datetime
 class MapeadorContratoDTOJson(AppMap):
     
     def externo_a_dto(self, externo: dict) -> ContratoDTO:
+        ##CAMBIAR CODIGO
+        """ contrato_dto = ContratoDTO()
+        contrato_dto.fecha_inicio = externo.get("fecha_inicio")
+        contrato_dto.fecha_fin = externo.get("fecha_fin")
+        contrato_dto.id_compania = externo.get("id_compania")
+        contrato_dto.id_inquilino = externo.get("id_inquilino")
+        contrato_dto.id_propiedad = externo.get("id_propiedad") """
+
+
         fecha_creacion = datetime.strptime("2025-02-25T05:12:58Z", '%Y-%m-%dT%H:%M:%SZ')
         fecha_actualizacion = datetime.strptime("2025-02-25T05:12:58Z", '%Y-%m-%dT%H:%M:%SZ')
-        fecha_inicio = datetime.strptime("2025-02-25T05:12:58Z", '%Y-%m-%dT%H:%M:%SZ')
-        fecha_fin = datetime.strptime("2025-02-25T05:12:58Z", '%Y-%m-%dT%H:%M:%SZ')
-        contrato_dto = ContratoDTO(-200,fecha_creacion,fecha_actualizacion,fecha_inicio,fecha_fin,externo.get('id_compania'),externo.get('id_inquilino'),externo.get('id_propiedad'),externo.get('monto'))
-        print("contrato_dto3")
+        fecha_inicio = datetime.strptime(externo.get("fecha_inicio"), '%Y-%m-%dT%H:%M:%SZ') 
+        fecha_fin = datetime.strptime(externo.get("fecha_fin"), '%Y-%m-%dT%H:%M:%SZ')
+        contrato_dtonuevo = ContratoDTO()
+        contrato_dto = ContratoDTO(fecha_creacion,fecha_actualizacion,fecha_inicio,fecha_fin,externo.get('id_compania'),externo.get('id_inquilino'),externo.get('id_propiedad'),externo.get('monto'))
+        
+        print("externo_a_dto")
         print(contrato_dto)
         print("EXTERNO")
         print(externo)
@@ -34,19 +45,17 @@ class MapeadorContrato(RepMap):
     def entidad_a_dto(self, entidad: Contrato) -> ContratoDTO:
         print("entidad_a_dto_aplicacion")
         print(entidad)
-        _id = str(entidad.id)
+        #_id = str(entidad.id)
         fecha_creacion = entidad.fecha_creacion.strftime(self._FORMATO_FECHA)
         fecha_actualizacion = entidad.fecha_actualizacion.strftime(self._FORMATO_FECHA)
         fecha_inicio = entidad.fecha_inicio.strftime(self._FORMATO_FECHA)
         fecha_fin = entidad.fecha_fin.strftime(self._FORMATO_FECHA)
-        print("entidad.id_compania")
-        print(entidad.id_compania)
         id_compania = entidad.id_compania
         id_inquilino = entidad.id_inquilino 
         id_propiedad = entidad.id_propiedad
         monto = float(entidad.monto)
         
-        return ContratoDTO(_id, fecha_creacion, fecha_actualizacion, fecha_inicio, fecha_fin, id_compania, id_inquilino, id_propiedad, monto)
+        return ContratoDTO(fecha_creacion, fecha_actualizacion, fecha_inicio, fecha_fin, id_compania, id_inquilino, id_propiedad, monto)
 
     def dto_a_entidad(self, dto: ContratoDTO) -> Contrato:
         contrato = Contrato()

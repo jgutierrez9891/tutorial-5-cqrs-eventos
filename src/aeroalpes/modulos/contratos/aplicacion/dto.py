@@ -3,7 +3,7 @@ from aeroalpes.seedwork.aplicacion.dto import DTO
 
 @dataclass(frozen=True)
 class ContratoDTO(DTO):
-    id: str = field(default_factory=str)
+    #id: int = field(default_factory=int)
     fecha_creacion: str = field(default_factory=str)
     fecha_actualizacion: str = field(default_factory=str)
     fecha_inicio: str = field(default_factory=str)

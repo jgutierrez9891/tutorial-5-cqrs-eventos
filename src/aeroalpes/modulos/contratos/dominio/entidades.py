@@ -10,10 +10,11 @@ from dataclasses import dataclass, field
 import aeroalpes.modulos.contratos.dominio.objetos_valor as ov
 from aeroalpes.modulos.contratos.dominio.eventos import ContratoCreado
 from aeroalpes.seedwork.dominio.entidades import Locacion, AgregacionRaiz, Entidad
+import uuid
 
 @dataclass
 class Contrato(AgregacionRaiz):
-    id: uuid.UUID = field(hash=True, default=None)
+    #id: uuid.UUID = field(hash=True, default=None)
     estado: ov.EstadoContrato = field(default=ov.EstadoContrato.PENDIENTE)
     fecha_inicio: ov.Fecha_inicio = field(hash=True, default=None)
     fecha_fin: ov.Fecha_fin = field(hash=True, default=None)
@@ -23,7 +24,7 @@ class Contrato(AgregacionRaiz):
     monto: ov.Monto = field(hash=True, default=None)
 
     def crear_contrato(self, contrato: Contrato):
-        self.id = contrato.id
+        #self.id = contrato.id
         self.estado = contrato.estado
         self.fecha_inicio = contrato.fecha_inicio
         self.fecha_fin = contrato.fecha_fin
@@ -35,7 +36,7 @@ class Contrato(AgregacionRaiz):
         print("contrato2:")
         print(contrato)
 
-        self.agregar_evento(ContratoCreado(id_contrato=self.id, estado=self.estado.name, fecha_creacion=self.fecha_creacion))
+        self.agregar_evento(ContratoCreado(213, estado=self.estado.name, fecha_creacion=self.fecha_creacion))
 
     """ def firmar_contrato(self):
         self.estado = ov.EstadoContrato.FIRMADO

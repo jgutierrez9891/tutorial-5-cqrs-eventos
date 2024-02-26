@@ -43,7 +43,7 @@ def crear_contrato_asincrono():
         print("contratodto2:")
         print(contrato_dto)
 
-        comando = CrearContrato(contrato_dto.id, contrato_dto.fecha_creacion, contrato_dto.fecha_actualizacion, contrato_dto.fecha_inicio, contrato_dto.fecha_fin, contrato_dto.id_compania, contrato_dto.id_inquilino, contrato_dto.id_propiedad, contrato_dto.monto)
+        comando = CrearContrato(contrato_dto.fecha_creacion, contrato_dto.fecha_actualizacion, contrato_dto.fecha_inicio, contrato_dto.fecha_fin, contrato_dto.id_compania, contrato_dto.id_inquilino, contrato_dto.id_propiedad, contrato_dto.monto)
         
         ejecutar_commando(comando)
         
