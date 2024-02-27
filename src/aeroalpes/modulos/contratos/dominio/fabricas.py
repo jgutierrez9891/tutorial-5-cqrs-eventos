@@ -22,9 +22,6 @@ class _FabricaContrato(Fabrica):
             return mapeador.entidad_a_dto(obj)
         else:
             contrato: Contrato = mapeador.dto_a_entidad(obj)
-
-            """ self.validar_regla(MinimoUnItinerario(reserva.itinerarios))
-            [self.validar_regla(RutaValida(ruta)) for itin in reserva.itinerarios for odo in itin.odos for segmento in odo.segmentos for ruta in segmento.legs] """
             
             return contrato
 

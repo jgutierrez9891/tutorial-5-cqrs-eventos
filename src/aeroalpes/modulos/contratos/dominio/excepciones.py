@@ -1,7 +1,7 @@
-""" Excepciones del dominio de vuelos
+""" Excepciones del dominio de contratos
 
 En este archivo usted encontrará los Excepciones relacionadas
-al dominio de vuelos
+al dominio de contratos
 
 """
 
