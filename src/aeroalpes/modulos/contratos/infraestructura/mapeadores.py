@@ -23,7 +23,7 @@ class MapeadorContrato(Mapeador):
         contrato_dto = ContratoDTO()
         contrato_dto.fecha_creacion = entidad.fecha_creacion
         contrato_dto.fecha_actualizacion = entidad.fecha_actualizacion
-        contrato_dto.id = str(uuid.uuid4())
+        contrato_dto.id = entidad.id
         contrato_dto.fecha_inicio = entidad.fecha_inicio 
         contrato_dto.fecha_fin = entidad.fecha_fin
         contrato_dto.id_propiedad = entidad.id_propiedad

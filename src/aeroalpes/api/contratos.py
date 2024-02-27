@@ -37,7 +37,8 @@ def crear_contrato_asincrono():
         contrato_dict = request.json
 
         map_contrato = MapeadorContratoDTOJson()
-        
+        print("contrato_dict")
+        print(contrato_dict)
 
         contrato_dto = map_contrato.externo_a_dto(contrato_dict)
         print("contratodto2:")

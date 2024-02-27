@@ -6,6 +6,8 @@ class HandlerContratoIntegracion(Handler):
 
     @staticmethod
     def handle_contrato_creado(evento):
+        print("handler evento")
+        print(evento)
         despachador = Despachador()
         despachador.publicar_evento(evento, 'eventos-contrato')
 

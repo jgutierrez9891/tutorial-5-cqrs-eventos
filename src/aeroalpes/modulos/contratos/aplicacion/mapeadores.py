@@ -4,6 +4,7 @@ from aeroalpes.modulos.contratos.dominio.entidades import Contrato
 from aeroalpes.modulos.contratos.dominio.objetos_valor import Fecha_inicio, Fecha_fin, Monto
 from datetime import datetime
 from .dto import ContratoDTO
+import uuid
 
 from datetime import datetime
 
@@ -14,7 +15,7 @@ class MapeadorContratoDTOJson(AppMap):
         fecha_actualizacion = datetime.strptime("2025-02-25T05:12:58Z", '%Y-%m-%dT%H:%M:%SZ')
         fecha_inicio = datetime.strptime("2025-02-25T05:12:58Z", '%Y-%m-%dT%H:%M:%SZ')
         fecha_fin = datetime.strptime("2025-02-25T05:12:58Z", '%Y-%m-%dT%H:%M:%SZ')
-        contrato_dto = ContratoDTO(-200,fecha_creacion,fecha_actualizacion,fecha_inicio,fecha_fin,externo.get('id_compania'),externo.get('id_inquilino'),externo.get('id_propiedad'),externo.get('monto'))
+        contrato_dto = ContratoDTO(str(uuid.uuid4()),fecha_creacion,fecha_actualizacion,fecha_inicio,fecha_fin,externo.get('id_compania'),externo.get('id_inquilino'),externo.get('id_propiedad'),externo.get('monto'))
         print("contrato_dto3")
         print(contrato_dto)
         print("EXTERNO")
@@ -52,7 +53,7 @@ class MapeadorContrato(RepMap):
         contrato = Contrato()
         print("dto_a_entidad_aplicacion:")
         print(contrato)
-
+        contrato.id = dto.id
         contrato.fecha_inicio = dto.fecha_inicio
         contrato.fecha_fin = dto.fecha_fin
         contrato.id_compania = dto.id_compania

@@ -24,7 +24,7 @@ class CrearContrato(Comando):
 class CrearContratoHandler(CrearContratoBaseHandler):
     
     def handle(self, comando: CrearContrato):
-        print("comando")
+        print("CrearContratoDaniel")
         print(comando)
 
         contrato_dto = ContratoDTO(

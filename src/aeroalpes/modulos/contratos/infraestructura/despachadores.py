@@ -21,6 +21,8 @@ class Despachador:
 
     def publicar_evento(self, evento, topico):
         # TODO Debe existir un forma de crear el Payload en Avro con base al tipo del evento
+        print("publicador")
+        print(evento)
         payload = ContratoCreadoPayload(
             id=str(evento.id_contrato), 
             estado=str(evento.estado), 

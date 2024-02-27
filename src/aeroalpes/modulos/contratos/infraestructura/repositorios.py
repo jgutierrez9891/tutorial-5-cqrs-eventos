@@ -50,6 +50,8 @@ class RepositorioContratosSQLite(RepositorioContratos):
         raise NotImplementedError
 
     def agregar(self, contrato: Contrato):
+        print("contrato_db")
+        print(contrato)
         contrato_dto = self.fabrica_contratos.crear_objeto(contrato, MapeadorContrato())
         print("contrato-sqlite")
         print(contrato_dto)

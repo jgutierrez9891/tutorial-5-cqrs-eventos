@@ -34,6 +34,9 @@ class ServicioContrato(Servicio):
         UnidadTrabajoPuerto.savepoint()
         UnidadTrabajoPuerto.commit()
 
+        print("CONTRATO FABRICA")
+        print(contrato)
+
         return self.fabrica_contratos.crear_objeto(contrato, MapeadorContrato())
 
     def obtener_contrato_por_id(self, id) -> ContratoDTO:
