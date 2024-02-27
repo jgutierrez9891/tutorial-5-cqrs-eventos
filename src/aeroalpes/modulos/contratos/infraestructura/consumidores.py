@@ -17,6 +17,7 @@ def suscribirse_a_eventos():
 
         while True:
             mensaje = consumidor.receive()
+            print(mensaje.value())
             print(f'Evento recibido: {mensaje.value().data}')
 
             consumidor.acknowledge(mensaje)     
