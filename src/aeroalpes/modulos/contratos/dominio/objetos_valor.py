@@ -19,6 +19,17 @@ class Fecha_inicio():
 class Fecha_fin():
     fecha_fin: datetime
 
+@dataclass(frozen=True)
+class id_compania():
+    id_compania: integer
+
+@dataclass(frozen=True)
+class id_inquilino():
+    id_inquilino: integer
+
+@dataclass(frozen=True)
+class id_propiedad():
+    id_propiedad: integer
 
 @dataclass(frozen=True)
 class Monto():

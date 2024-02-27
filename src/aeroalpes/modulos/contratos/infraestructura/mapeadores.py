@@ -39,8 +39,9 @@ class MapeadorContrato(Mapeador):
         contrato = Contrato(dto.id, dto.fecha_creacion, dto.fecha_actualizacion)
         contrato.fecha_inicio = dto.fecha_inicio
         contrato.fecha_fin = dto.fecha_fin
-        """ contrato.id_propiedad = dto.id_propiedad
-        contrato.id_inquilino = dto.id_inquilino """
+        contrato.id_propiedad = dto.id_propiedad
+        contrato.id_inquilino = dto.id_inquilino
+        contrato.id_compania = dto.id_compania
         contrato.monto = dto.monto
         
         return contrato

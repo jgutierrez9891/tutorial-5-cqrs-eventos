@@ -66,9 +66,14 @@ def dar_contrato(id=None):
 @bp.route('/contrato-query', methods=('GET',))
 @bp.route('/contrato-query/<id>', methods=('GET',))
 def dar_contrato_usando_query(id=None):
+    print("cualquier cosa")
     if id:
         query_resultado = ejecutar_query(ObtenerContrato(id))
+        print(" query_resultado")
+        print( query_resultado)
         map_contrato = MapeadorContratoDTOJson()
+        print("map_contrato")
+        print(map_contrato)
         
         return map_contrato.dto_a_externo(query_resultado.resultado)
     else:

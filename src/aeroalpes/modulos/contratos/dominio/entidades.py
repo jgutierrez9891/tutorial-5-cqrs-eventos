@@ -17,9 +17,9 @@ class Contrato(AgregacionRaiz):
     estado: ov.EstadoContrato = field(default=ov.EstadoContrato.PENDIENTE)
     fecha_inicio: ov.Fecha_inicio = field(hash=True, default=None)
     fecha_fin: ov.Fecha_fin = field(hash=True, default=None)
-    """ id_compania = field(hash=True, default=None)
-    id_inquilino = field(hash=True, default=None)
-    id_propiedad = field(hash=True, default=None) """
+    id_compania: ov.id_compania = field(hash=True, default=None)
+    id_inquilino: ov.id_inquilino = field(hash=True, default=None)
+    id_propiedad: ov.id_propiedad = field(hash=True, default=None)
     monto: ov.Monto = field(hash=True, default=None)
 
     def crear_contrato(self, contrato: Contrato):
