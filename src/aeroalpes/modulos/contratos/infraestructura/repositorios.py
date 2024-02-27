@@ -7,7 +7,6 @@ persistir objetos dominio (agregaciones) en la capa de infraestructura del domin
 
 from aeroalpes.config.db import db
 from aeroalpes.modulos.contratos.dominio.repositorios import RepositorioContratos, RepositorioProveedores
-from aeroalpes.modulos.vuelos.dominio.objetos_valor import NombreAero, Odo, Leg, Segmento, Itinerario, CodigoIATA
 from aeroalpes.modulos.contratos.dominio.entidades import Contrato
 from aeroalpes.modulos.contratos.dominio.fabricas import FabricaContratos
 from .dto import Contrato as ContratoDTO
